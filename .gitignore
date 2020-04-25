@@ -1,1 +1,4 @@
 .idea/
+wp-config-local.php
+wp-content/cache/*
+wp-content/uploads/*
