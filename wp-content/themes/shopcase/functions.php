@@ -146,9 +146,9 @@ function shopcase_scripts() {
 	wp_enqueue_style( 'shopcase-style', get_stylesheet_uri(), array(), _S_VERSION );
 
 	wp_enqueue_style( 'shopcase-component', get_stylesheet_uri() . '/layouts/component.css' );
-	wp_enqueue_style( 'flexslider', get_stylesheet_uri() . '/layouts/flexslider.css' );
-	wp_enqueue_style( 'prettyPhoto', get_stylesheet_uri() . '/layouts/prettyPhoto.css' );
-	wp_enqueue_style( 'shopcase-main', get_stylesheet_uri() . '/layouts/style.css' );
+	wp_enqueue_style( 'flexslider', get_template_directory_uri() . '/layouts/flexslider.css' );
+	wp_enqueue_style( 'prettyPhoto', get_template_directory_uri() . '/layouts/prettyPhoto.css' );
+	wp_enqueue_style( 'shopcase-main', get_template_directory_uri() . '/layouts/style.css' );
 
 	wp_style_add_data( 'shopcase-style', 'rtl', 'replace' );
 
@@ -189,9 +189,13 @@ require get_template_directory() . '/inc/template-functions.php';
 require get_template_directory() . '/inc/customizer.php';
 
 /**
+ * Register post types
+ */
+require get_template_directory() . '/inc/post-type.php';
+
+/**
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
-

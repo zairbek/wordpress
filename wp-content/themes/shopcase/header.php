@@ -22,6 +22,60 @@
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
+
+    <section>
+        <header class="inner">
+            <div class="container">
+                <div class="line-top">
+                    <div class="wither-w">
+                        <span class="cloud"><img src="<?php echo get_template_directory_uri();?>/images/cloud.png" alt="" /></span>
+                        <span>18°c</span>
+                        <div class="city-wrap"><a href="javascript:void(0)" class="w-select">London <i class="fa fa-angle-down"></i></a>
+                            <div class="city-drop">
+                                <a href="#">Paris</a>
+                                <a href="#">Kopengagen</a>
+                                <a href="#">Berlin</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="logo">
+                        <a href="#"><img src="<?php echo get_template_directory_uri();?>/images/logo.png" alt="" /></a>
+                    </div>
+                    <div class="contacts">
+                        <span><i class="fa fa-mobile"></i>8 800 346 10 79</span>
+                        <span><i class="fa fa-envelope"></i>mail@website.com</span>
+                    </div>
+                </div>
+                <nav class="main-nav in">
+                    <ul class="nav-menu" >
+                        <li><a href="index.html">Homepage</a></li>
+                        <li class="active"><a href="about.html">About</a></li>
+                        <li><a href="booking.html">Booking</a></li>
+                        <li class="dropdown"><a href="tour.html" >Tour<i class="fa fa-angle-down"></i></a>
+                            <ul class="drop-menu" id="drop-menu">
+                                <li><a href="#" >First menu</a></li>
+                                <li><a href="#" >Second menu</a></li>
+                                <li><a href="#" >Thirth menu</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="hot-deals.html">Hot deals</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                    <div class="search">
+                        <input type="text" id="search-input" placeholder="Keywords"/>
+                        <button class="btn-search"><i class="fa fa-search"></i></button>
+                    </div>
+                </nav>
+            </div>
+
+        </header>
+
+    </section>
+
+
+<?php /*
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'shopcase' ); ?></a>
 
@@ -57,3 +111,5 @@
 			?>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
+
+ */
