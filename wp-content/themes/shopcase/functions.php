@@ -144,7 +144,19 @@ add_action( 'widgets_init', 'shopcase_widgets_init' );
  */
 function shopcase_scripts() {
 	wp_enqueue_style( 'shopcase-style', get_stylesheet_uri(), array(), _S_VERSION );
+
+	wp_enqueue_style( 'shopcase-component', get_stylesheet_uri() . '/layouts/component.css' );
+	wp_enqueue_style( 'flexslider', get_stylesheet_uri() . '/layouts/flexslider.css' );
+	wp_enqueue_style( 'prettyPhoto', get_stylesheet_uri() . '/layouts/prettyPhoto.css' );
+	wp_enqueue_style( 'shopcase-main', get_stylesheet_uri() . '/layouts/style.css' );
+
 	wp_style_add_data( 'shopcase-style', 'rtl', 'replace' );
+
+	wp_enqueue_script( 'flexslider', get_template_directory_uri() . '/js/libs/jquery.flexslider.js', array(), '', false );
+	wp_enqueue_script( 'prettyPhoto', get_template_directory_uri() . '/js/libs/jquery.prettyPhoto.js', array(), '', false );
+	wp_enqueue_script( 'responsiveTabs', get_template_directory_uri() . '/js/libs/jquery.responsiveTabs.js', array(), '', false );
+	wp_enqueue_script( 'modernizr.custom', get_template_directory_uri() . '/js/libs/modernizr.custom.js', array(), '', false );
+	wp_enqueue_script( 'shopcase-scripts', get_template_directory_uri() . '/js/script.js', array(), '', false );
 
 	wp_enqueue_script( 'shopcase-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
