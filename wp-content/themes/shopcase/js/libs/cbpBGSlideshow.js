@@ -8,7 +8,7 @@
  * Copyright 2013, Codrops
  * http://www.codrops.com
  */
-var cbpBGSlideshow = (function() {
+var cbpBGSlideshow = (function($) {
 
 	var $slideshow = $( '#cbp-bislideshow' ),
 		$items = $slideshow.children( 'li' ),
@@ -28,11 +28,11 @@ var cbpBGSlideshow = (function() {
 		// it takes 3.5 seconds to change the background image
 		interval = 3500;
 
-	function init( config ) {
+	function init(  ) {
 
 		// preload the images
 		$slideshow.imagesLoaded( function() {
-			
+
 			if( Modernizr.backgroundsize ) {
 				$items.each( function() {
 					var $item = $( this );
@@ -123,4 +123,4 @@ var cbpBGSlideshow = (function() {
 
 	return { init : init };
 
-})();
+})(jQuery);
