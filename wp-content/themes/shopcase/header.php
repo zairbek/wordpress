@@ -18,6 +18,8 @@ global $shopcase_redux;
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 	<?php wp_head(); ?>
 </head>
 
@@ -54,25 +56,20 @@ global $shopcase_redux;
                     </div>
                 </div>
                 <nav class="main-nav in">
-                    <ul class="nav-menu" >
-                        <li><a href="index.html">Homepage</a></li>
-                        <li class="active"><a href="about.html">About</a></li>
-                        <li><a href="booking.html">Booking</a></li>
-                        <li class="dropdown"><a href="tour.html" >Tour<i class="fa fa-angle-down"></i></a>
-                            <ul class="drop-menu" id="drop-menu">
-                                <li><a href="#" >First menu</a></li>
-                                <li><a href="#" >Second menu</a></li>
-                                <li><a href="#" >Thirth menu</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="hot-deals.html">Hot deals</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
+                    <?php wp_nav_menu(
+                        array(
+                            'theme_location' => 'main_menu',
+                            'menu_id'        => 'primary-menu',
+                            'menu_class'     => 'nav-menu',
+                            'container'      => 'ul',
+                            'container_id'      => ''
+                        )
+                    );?>
                     <div class="search">
-                        <input type="text" id="search-input" placeholder="Keywords"/>
-                        <button class="btn-search"><i class="fa fa-search"></i></button>
+                        <form action="<?php echo home_url('/');?>" class="search-form">
+                            <input type="text" name="s" id="search-input" placeholder="Keywords"/>
+                            <button class="btn-search"><i class="fa fa-search"></i></button>
+                        </form>
                     </div>
                 </nav>
             </div>

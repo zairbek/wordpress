@@ -61,7 +61,9 @@ if ( ! function_exists( 'shopcase_setup' ) ) :
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
 			array(
-				'menu-1' => esc_html__( 'Primary', 'shopcase' ),
+				'main_menu' => esc_html__( 'Main menu', 'shopcase' ),
+				'footer_left' => esc_html__( 'Footer left', 'shopcase' ),
+				'footer_right' => esc_html__( 'Footer right', 'shopcase' ),
 			)
 		);
 
