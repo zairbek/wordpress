@@ -7,6 +7,17 @@
  * @package shopcase
  */
 
+function printr( $var, $dump = false, $die = false ){
+    echo '<pre>';
+    if( $dump )
+        var_dump( $var );
+    else
+        print_r( $var );
+    if( $die )
+        die;
+    echo '</pre>';
+}
+
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
 	define( '_S_VERSION', '1.0.0' );
@@ -192,6 +203,11 @@ require get_template_directory() . '/inc/customizer.php';
  * Register post types
  */
 require get_template_directory() . '/inc/post-type.php';
+
+/**
+ * Redux option panel
+ */
+require get_template_directory() . '/inc/sample-config.php';
 
 /**
  * Load Jetpack compatibility file.

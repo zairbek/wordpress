@@ -9,6 +9,7 @@
  * @package shopcase
  */
 
+global $shopcase_redux;
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -28,7 +29,9 @@
             <div class="container">
                 <div class="line-top">
                     <div class="wither-w">
-                        <span class="cloud"><img src="<?php echo get_template_directory_uri();?>/images/cloud.png" alt="" /></span>
+                        <span class="cloud">
+                            <img src="<?php echo get_template_directory_uri();?>/images/cloud.png" alt="" />
+                        </span>
                         <span>18°c</span>
                         <div class="city-wrap"><a href="javascript:void(0)" class="w-select">London <i class="fa fa-angle-down"></i></a>
                             <div class="city-drop">
@@ -39,11 +42,15 @@
                         </div>
                     </div>
                     <div class="logo">
-                        <a href="#"><img src="<?php echo get_template_directory_uri();?>/images/logo.png" alt="" /></a>
+                        <a href="<?php echo home_url('/')?>">
+                            <?php if( !empty( $shopcase_redux['shopcase-logo']['url'] ) ):?>
+                                <img src="<?php echo esc_url( $shopcase_redux['shopcase-logo']['url'] ) ?>" alt="" />
+                            <?php endif;?>
+                        </a>
                     </div>
                     <div class="contacts">
-                        <span><i class="fa fa-mobile"></i>8 800 346 10 79</span>
-                        <span><i class="fa fa-envelope"></i>mail@website.com</span>
+                        <?php if( !empty( $shopcase_redux['header-phone'] ) ):?><span><i class="fa fa-mobile"></i><?php echo esc_attr( $shopcase_redux['header-phone']) ?></span><?php endif;?>
+                        <?php if( !empty( $shopcase_redux['header-email'] ) ):?><span><i class="fa fa-envelope"></i><?php echo esc_attr( $shopcase_redux['header-email']) ?></span><?php endif;?>
                     </div>
                 </div>
                 <nav class="main-nav in">
