@@ -32,24 +32,54 @@ function filter_deals_example( $data ){
     }
 
 
-    $custom_filter = new WP_Query( $args );
 
-    if ( $custom_filter->have_posts() ) :
+    if( !empty( $_POST ) ) {
+        $custom_filter = new WP_Query( $args );
 
-
-        /* Start the Loop */
-        while ( $custom_filter->have_posts() ) :
-            $custom_filter->the_post();
-
-            the_title();
-
-        endwhile;
+        if ($custom_filter->have_posts()) :
 
 
-    else :
+            /* Start the Loop */
+            while ($custom_filter->have_posts()) :
+                $custom_filter->the_post();
 
-        echo 'posts no find';
+                the_title();
 
-    endif;
+            endwhile;
+
+
+        else :
+
+            echo 'posts no find';
+
+        endif;
+
+    }else{
+        $args = array(
+            'post_type' => 'deals',
+            'posts_per_page' => '5',
+        );
+        $default_filters = new WP_Query( $args );
+
+
+        if ($default_filters->have_posts()) :
+
+
+            /* Start the Loop */
+            while ($default_filters->have_posts()) :
+                $default_filters->the_post();
+
+                the_title();
+
+            endwhile;
+
+
+        else :
+
+            echo 'posts no find';
+
+        endif;
+
+    }
 
 }
