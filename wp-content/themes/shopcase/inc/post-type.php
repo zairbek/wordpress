@@ -84,3 +84,36 @@ function shopcase_custom_post_type_testimonials() {
 }
 
 add_action( 'init', 'shopcase_custom_post_type_testimonials' );
+
+
+/**
+ * Register a private 'Genre' taxonomy for post type 'book'.
+ *
+ * @see register_post_type() for registering post types.
+ */
+function custom_register_taxonomy() {
+    $location = array(
+        'label'        => __( 'Location', 'textdomain' ),
+        'public'       => true,
+        'rewrite'      => false,
+        'hierarchical' => true
+    );
+    register_taxonomy( 'location', 'deals', $location );
+
+    $price = array(
+        'label'        => __( 'Price', 'textdomain' ),
+        'public'       => true,
+        'rewrite'      => false,
+        'hierarchical' => true
+    );
+    register_taxonomy( 'price', 'deals', $price );
+
+    $type = array(
+        'label'        => __( 'Type', 'textdomain' ),
+        'public'       => true,
+        'rewrite'      => false,
+        'hierarchical' => true
+    );
+    register_taxonomy( 'type', 'deals', $type );
+}
+add_action( 'init', 'custom_register_taxonomy', 0 );

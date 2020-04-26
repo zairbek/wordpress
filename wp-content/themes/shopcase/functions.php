@@ -220,6 +220,11 @@ require get_template_directory() . '/inc/sample-config.php';
 require get_template_directory() . '/inc/breadcrumbs.php';
 
 /**
+ * BreadCrumbs
+ */
+require get_template_directory() . '/inc/filters.php';
+
+/**
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {

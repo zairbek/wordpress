@@ -31,17 +31,6 @@ global $shopcase_redux;
     ?>
         <section class="top">
             <div class="slider">
-                <!--<div class="flexslider">
-                    <ul class="slides">
-                        <li>
-                        <img src="images/slider-1.jpg" />
-                        </li>
-                        <li>
-                        <img src="images/slider-2.jpg" />
-                        </li>
-
-                    </ul>
-                </div>-->
                 <ul id="cbp-bislideshow" class="cbp-bislideshow">
                     <li>
                         <img src="<?php echo get_template_directory_uri();?>/images/slider-1.jpg" alt="image01" />
@@ -120,16 +109,36 @@ global $shopcase_redux;
                 <div class="q-search">
                     <div class="container">
                         <div class="q-search-wrap">
-                            <select id="location">
-                                <option>location</option>
-                            </select>
-                            <select id="type">
-                                <option>type</option>
-                            </select>
-                            <select id="coast">
-                                <option>150$-200$</option>
-                            </select>
-                            <button class="btn btn-yellow">quick Search</button>
+                            <form method="post" action="<?php echo home_url('/deals')?>">
+                                <select id="location" name="location">
+                                    <option value="">Choose</option>
+                                    <?php
+                                    $filter_location = get_terms('location');
+                                    foreach(  $filter_location as $location ):
+                                    ?>
+                                        <option value="<?php echo $location->slug;?>"><?php echo $location->name;?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <select id="type" name="type">
+                                    <option value="">Choose</option>
+                                    <?php
+                                    $filter_type = get_terms('type');
+                                    foreach(  $filter_type as $type ):
+                                        ?>
+                                        <option value="<?php echo $type->slug;?>"><?php echo $type->name;?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <select id="coast" name="price">
+                                    <option value="">Choose</option>
+                                    <?php
+                                    $filter_price = get_terms('price');
+                                    foreach(  $filter_price as $price ):
+                                        ?>
+                                        <option value="<?php echo $price->slug;?>"><?php echo $price->name;?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <button class="btn btn-yellow">quick Search</button>
+                            </form>
                         </div>
                     </div>
                 </div>
